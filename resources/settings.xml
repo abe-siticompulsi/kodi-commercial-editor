@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
   <setting id="pause_summon" type="bool" label="32021" default="true"/>
+  <setting id="install_keymap" type="bool" label="32022" default="true"/>
   <setting id="verbose" type="bool" label="32020" default="false"/>
 </settings>

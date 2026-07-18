@@ -49,21 +49,12 @@ per break. **Undo** removes the pending mark or the last saved segment;
 **Close** dismisses the overlay and leaves the video paused (pausing for
 other reasons stays possible — the overlay never resumes on its own).
 
-Pause-to-summon can be disabled in the addon settings. Manual summoning
-also works — bind a key in `userdata/keymaps/` (pick an unbound key; e.g.
-`e` is taken by live TV):
-
-```xml
-<keymap>
-  <fullscreenvideo>
-    <keyboard>
-      <f7>RunScript(service.commercial-editor)</f7>
-    </keyboard>
-  </fullscreenvideo>
-</keymap>
-```
-
-or via JSON-RPC:
+Manual summoning also works: the addon installs its own keymap — press
+**`e`** during fullscreen video (scoped there, overriding the stock live-TV
+binding). Both the pause hook and the keymap can be disabled in the addon
+settings (disabling the keymap removes the file again). For a different key,
+turn the managed keymap off and drop your own file in
+`special://profile/keymaps/`. JSON-RPC works too:
 `{"jsonrpc":"2.0","method":"Addons.ExecuteAddon","params":{"addonid":"service.commercial-editor"},"id":1}`
 
 Note: Kodi loads EDL sidecars when playback starts, so a segment saved during

@@ -13,7 +13,7 @@ here."""
 
 import xbmc
 
-from resources.lib import overlay, selfcheck, session, util
+from resources.lib import keymap, overlay, selfcheck, session, util
 
 
 class _PlayerWatcher(xbmc.Player):
@@ -40,10 +40,16 @@ class _PlayerWatcher(xbmc.Player):
             util.log(f"pause-summon skipped, prerequisites not met: {media_path}")
 
 
+class _SettingsWatcher(xbmc.Monitor):
+    def onSettingsChanged(self):
+        keymap.sync()
+
+
 def main():
     util.log("service started", xbmc.LOGINFO)
-    monitor = xbmc.Monitor()
+    monitor = _SettingsWatcher()
     watcher = _PlayerWatcher()  # noqa: F841 — must stay referenced to receive callbacks
+    keymap.sync()
     while not monitor.abortRequested():
         if monitor.waitForAbort(1):
             break
