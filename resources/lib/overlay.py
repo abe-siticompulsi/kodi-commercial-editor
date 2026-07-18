@@ -35,11 +35,17 @@ class EditorOverlay(xbmcgui.WindowXMLDialog):
         super().__init__(*args, **kwargs)
         self._player = xbmc.Player()
         self._media_path = kwargs.get("media_path", "")
+        self._focus_close = kwargs.get("focus_close", False)
 
     def onInit(self):
         self.getControl(_BTN_UNDO).setLabel(util.L(32003))
         self.getControl(_BTN_CLOSE).setLabel(util.L(32004))
         self._refresh(util.L(32013))
+        if self._focus_close:
+            # Pause-summoned: the pause may not mean "mark" (see default.py),
+            # so the safe control gets focus. An explicit summon keeps focus
+            # on the mark button.
+            self.setFocusId(_BTN_CLOSE)
 
     def _refresh(self, status):
         marking = session.pending_start(self._media_path) is not None
@@ -77,12 +83,13 @@ class EditorOverlay(xbmcgui.WindowXMLDialog):
             self.close()
 
 
-def show(media_path):
+def show(media_path, focus_close=False):
     if is_open():
         return
     _HOME.setProperty(_PROP_OPEN, "1")
     try:
-        dialog = EditorOverlay(_XML, util.ADDON_PATH, "Default", "1080i", media_path=media_path)
+        dialog = EditorOverlay(_XML, util.ADDON_PATH, "Default", "1080i",
+                               media_path=media_path, focus_close=focus_close)
         dialog.doModal()
         del dialog
     finally:

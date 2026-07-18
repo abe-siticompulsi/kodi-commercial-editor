@@ -24,6 +24,13 @@ _CONTENT = """<?xml version="1.0" encoding="UTF-8"?>
       <e>RunScript(service.commercial-editor)</e>
     </keyboard>
   </fullscreenvideo>
+  <!-- Also while the OSD is up: the natural flow is fine-seeking to the
+       boundary with the OSD, then summoning the editor right there. -->
+  <videoosd>
+    <keyboard>
+      <e>RunScript(service.commercial-editor)</e>
+    </keyboard>
+  </videoosd>
 </keymap>
 """
 

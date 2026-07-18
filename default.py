@@ -30,7 +30,9 @@ def main():
         else:
             xbmcgui.Dialog().ok(util.ADDON_NAME, error)
         return
-    overlay.show(media_path)
+    # auto (pause-summoned): focus Close — a pause may not mean "mark".
+    # Explicit summon (key/JSON-RPC): focus the mark button — that IS intent.
+    overlay.show(media_path, focus_close=auto)
 
 
 if __name__ == "__main__":

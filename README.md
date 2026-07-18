@@ -50,10 +50,12 @@ per break. **Undo** removes the pending mark or the last saved segment;
 other reasons stays possible — the overlay never resumes on its own).
 
 Manual summoning also works: the addon installs its own keymap — press
-**`e`** during fullscreen video (scoped there, overriding the stock live-TV
-binding). Both the pause hook and the keymap can be disabled in the addon
-settings (disabling the keymap removes the file again). For a different key,
-turn the managed keymap off and drop your own file in
+**`e`** during fullscreen video *or while the video OSD is up* (handy after
+fine-seeking to a boundary with the OSD). When summoned this way the mark
+button is focused; when auto-opened by a pause, **Close** is focused (a pause
+may not mean "mark"). Both the pause hook and the keymap can be disabled in
+the addon settings (disabling the keymap removes the file again). For a
+different key, turn the managed keymap off and drop your own file in
 `special://profile/keymaps/`. JSON-RPC works too:
 `{"jsonrpc":"2.0","method":"Addons.ExecuteAddon","params":{"addonid":"service.commercial-editor"},"id":1}`
 
