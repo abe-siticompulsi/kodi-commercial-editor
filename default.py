@@ -5,8 +5,14 @@
 Invoked automatically by the service when the video is paused
 (RunScript(service.commercial-editor,auto) — errors stay silent), or
 manually via Favourites / a keymap / JSON-RPC (errors show a dialog).
-Runs the prerequisite self-check first (DECISIONS.md, Prerequisites)."""
+Runs the prerequisite self-check first (DECISIONS.md, Prerequisites).
 
+The 'diag' argument runs the Plex-bridge diagnostic instead: it resolves
+the playing file to its ratingKey, fetches draft commercial markers, and
+publishes the result (never the token) as a home-window property so it can
+be read remotely via JSON-RPC."""
+
+import json
 import sys
 
 import xbmc
@@ -14,8 +20,29 @@ import xbmcgui
 
 from resources.lib import overlay, selfcheck, util
 
+_PROP_DIAG = "commercial-editor.diag"
+
+
+def diag():
+    from resources.lib import plexbridge
+    player = xbmc.Player()
+    result = {"playing": player.isPlayingVideo()}
+    if result["playing"]:
+        media_path = player.getPlayingFile()
+        result["file"] = media_path
+        result["pkc_connection"] = plexbridge.pkc_connection() is not None
+        markers, detail = plexbridge.commercial_markers(media_path)
+        result["detail"] = detail
+        result["commercials"] = markers
+    payload = json.dumps(result)
+    xbmcgui.Window(10000).setProperty(_PROP_DIAG, payload)
+    util.log(f"diag: {payload}", xbmc.LOGINFO)
+
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "diag":
+        diag()
+        return
     auto = len(sys.argv) > 1 and sys.argv[1] == "auto"
     player = xbmc.Player()
     if not player.isPlayingVideo():
