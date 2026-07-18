@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="service.commercial-editor"
+       name="Commercial Editor"
+       version="0.1.0"
+       provider-name="abe-siticompulsi">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+  </requires>
+  <!-- Background service: watches playback, clears stale pending marks -->
+  <extension point="xbmc.service" library="service.py"/>
+  <!-- Runnable entry point: summons the marking overlay during playback
+       (add it to Favourites, or bind RunScript(service.commercial-editor) to a key) -->
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Mark and auto-skip commercials from inside Kodi</summary>
+    <description lang="en_GB">Fix commercial timestamps during playback with a simple on-screen overlay. Verified segments are written to an EDL sidecar file next to the recording, which Kodi auto-skips on the next playback. Optionally seeds from Plex DVR (comskip) draft markers. Requires direct file playback and a writable media source.</description>
+    <license>GPL-3.0-or-later</license>
+    <platform>all</platform>
+    <source>https://github.com/abe-siticompulsi/kodi-commercial-editor</source>
+    <news>0.1.0 — M0 scaffold: manual mark → EDL sidecar → auto-skip on next play.</news>
+  </extension>
+</addon>

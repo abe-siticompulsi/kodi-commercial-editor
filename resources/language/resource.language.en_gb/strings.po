@@ -1,0 +1,72 @@
+# Kodi Media Center language file
+# Addon Name: Commercial Editor
+# Addon id: service.commercial-editor
+# Addon Provider: abe-siticompulsi
+msgid ""
+msgstr ""
+"Project-Id-Version: service.commercial-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/abe-siticompulsi/kodi-commercial-editor\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "#32001"
+msgid "Commercial starts here"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Commercial ends here"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Undo"
+msgstr ""
+
+msgctxt "#32004"
+msgid "Close"
+msgstr ""
+
+msgctxt "#32005"
+msgid "Commercial saved — it will be auto-skipped on the next playback"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Start marked at %s — press again where the commercial ends"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Pending start mark cancelled"
+msgstr ""
+
+msgctxt "#32008"
+msgid "Removed last commercial (%s → %s) from the EDL"
+msgstr ""
+
+msgctxt "#32009"
+msgid "Nothing to undo"
+msgstr ""
+
+msgctxt "#32010"
+msgid "No video is playing"
+msgstr ""
+
+msgctxt "#32011"
+msgid "This video is not played from a direct file path (it is a stream), so an EDL sidecar cannot work. Enable direct file access (e.g. Direct Paths) and try again."
+msgstr ""
+
+msgctxt "#32012"
+msgid "The media folder is not writable by Kodi, so the .edl sidecar cannot be saved. Make the media source writable and try again."
+msgstr ""
+
+msgctxt "#32013"
+msgid "Mark the commercial while it plays — the segment is skipped automatically next time"
+msgstr ""
+
+msgctxt "#32014"
+msgid "Segment too short — still waiting for the end mark"
+msgstr ""
+
+msgctxt "#32020"
+msgid "Verbose logging"
+msgstr ""
