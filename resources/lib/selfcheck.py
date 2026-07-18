@@ -11,9 +11,14 @@ actionable message, not silently.
 
 import re
 
+import xbmcgui
 import xbmcvfs
 
 from . import util
+
+_HOME = xbmcgui.Window(10000)
+_PROP_CHECK_FILE = "commercial-editor.check.file"
+_PROP_CHECK_OK = "commercial-editor.check.ok"
 
 _NON_DIRECT = ("plugin://", "http://", "https://", "pvr://", "upnp://", "videodb://", "pipe://")
 _PROBE_NAME = ".commercial-editor.probe"
@@ -51,3 +56,15 @@ def check(media_path):
         util.log(f"media dir not writable: {media_dir(media_path)}")
         return False, util.L(32012)
     return True, ""
+
+
+def check_cached(media_path):
+    """Like check(), but probe each file only once — the pause-summon path
+    runs on every pause and must not spam probe writes onto the share."""
+    if media_path and _HOME.getProperty(_PROP_CHECK_FILE) == media_path:
+        return _HOME.getProperty(_PROP_CHECK_OK) == "1", ""
+    ok, message = check(media_path)
+    if media_path:
+        _HOME.setProperty(_PROP_CHECK_FILE, media_path)
+        _HOME.setProperty(_PROP_CHECK_OK, "1" if ok else "0")
+    return ok, message

@@ -1,14 +1,19 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 abe-siticompulsi and contributors
-"""Background service: keeps session state honest.
+"""Background service.
 
-M0 scope: clear a pending start-mark when playback stops so it can never leak
-onto the next video. M1 will grow the draft-marker watcher ("commercial ahead
-— skip & confirm?") here."""
+- Pause-to-summon: pausing the video opens the marking overlay (the natural
+  reflex when a commercial starts). Silent when prerequisites fail — pausing
+  a stream must never nag.
+- Keeps session state honest: clears a pending start-mark when playback
+  stops so it can never leak onto the next video.
+
+M1 will grow the draft-marker watcher ("commercial ahead — skip & confirm?")
+here."""
 
 import xbmc
 
-from resources.lib import session, util
+from resources.lib import overlay, selfcheck, session, util
 
 
 class _PlayerWatcher(xbmc.Player):
@@ -17,6 +22,22 @@ class _PlayerWatcher(xbmc.Player):
 
     def onPlayBackEnded(self):
         session.clear_pending()
+
+    def onPlayBackPaused(self):
+        if not util.ADDON.getSettingBool("pause_summon"):
+            return
+        if overlay.is_open():
+            return
+        try:
+            media_path = self.getPlayingFile()
+        except RuntimeError:
+            return
+        ok, _ = selfcheck.check_cached(media_path)
+        if ok:
+            # Decouple from the player callback thread.
+            xbmc.executebuiltin(f"RunScript({util.ADDON_ID},auto)")
+        else:
+            util.log(f"pause-summon skipped, prerequisites not met: {media_path}")
 
 
 def main():

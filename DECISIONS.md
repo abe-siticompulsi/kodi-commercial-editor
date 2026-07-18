@@ -56,7 +56,7 @@ errors instead of failing silently (see Build plan, M0).
 
 | # | Item | Status |
 |---|---|---|
-| 1 | Overlay-summon mechanism mid-playback | Spike at M0 start: OSD tap / favourites entry / fallback keymap. |
+| 1 | Overlay-summon mechanism mid-playback | **Resolved: pause-to-summon.** Field-testing killed the alternatives (favourites is unreachable during fullscreen video without a dedicated key; default keymaps conflict — `e` is live TV). Pausing is the natural reflex when an ad starts, works with every remote, needs zero setup. The service listens for `onPlayBackPaused`; marking auto-resumes playback. Keymap/JSON-RPC remain as manual fallbacks; a settings toggle disables the pause hook. |
 | 2 | `Player.Seek` real-world ms granularity | Verify empirically during M0. M2 nudge design (refined): the addon seeks at its own granularity and never relies on Kodi's skip-steps (10 s default — navigation, not precision). Backward = seek-emulated "go back a little" (−1 s coarse, −0.2 s fine; video codecs decode forward-only, so no native back-step exists). Forward = +0.2 s / +1 s seeks plus native `PlayerControl(FrameAdvance(n))` for frame-perfect landing while paused. Expected flow: pause near the boundary → back a little → frame-forward → mark. |
 | 3 | Kodi-file ↔ Plex-ratingKey mapping | Design at M1. Candidate strategies: PlexKodiConnect's local DB (stores Plex IDs) when present; fallback = match by file path/name via the Plex API. Must not hard-depend on any specific bridge. |
 

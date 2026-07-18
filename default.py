@@ -1,10 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 abe-siticompulsi and contributors
-"""Runnable entry point: summon the marking overlay during playback.
+"""Runnable entry point: open the marking overlay during playback.
 
-Add the addon to Favourites, or bind a key to
-RunScript(service.commercial-editor). Runs the prerequisite self-check first
-and reports actionable errors (DECISIONS.md, Prerequisites)."""
+Invoked automatically by the service when the video is paused
+(RunScript(service.commercial-editor,auto) — errors stay silent), or
+manually via Favourites / a keymap / JSON-RPC (errors show a dialog).
+Runs the prerequisite self-check first (DECISIONS.md, Prerequisites)."""
+
+import sys
 
 import xbmc
 import xbmcgui
@@ -13,14 +16,19 @@ from resources.lib import overlay, selfcheck, util
 
 
 def main():
+    auto = len(sys.argv) > 1 and sys.argv[1] == "auto"
     player = xbmc.Player()
     if not player.isPlayingVideo():
-        util.notify(util.L(32010), xbmcgui.NOTIFICATION_WARNING)
+        if not auto:
+            util.notify(util.L(32010), xbmcgui.NOTIFICATION_WARNING)
         return
     media_path = player.getPlayingFile()
-    ok, error = selfcheck.check(media_path)
+    ok, error = selfcheck.check_cached(media_path)
     if not ok:
-        xbmcgui.Dialog().ok(util.ADDON_NAME, error)
+        if auto:
+            util.log(f"summon refused: {error}")
+        else:
+            xbmcgui.Dialog().ok(util.ADDON_NAME, error)
         return
     overlay.show(media_path)
 

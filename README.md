@@ -41,26 +41,30 @@ nudge). No addon icon/fanart yet.
 
 ## Usage
 
-1. Start playing a recording.
-2. Summon the overlay:
-   - add **Commercial Editor** to your *Favourites* and open it during
-     playback, or
-   - bind a key in `keymaps/`:
+**Just pause.** When a commercial starts, pause the video — the editor
+overlay appears. Click **Commercial starts here**: playback resumes by
+itself. When the commercial ends, pause again and click **Commercial ends
+here**: the segment is saved and playback resumes. Two pauses, two clicks
+per break. **Undo** removes the pending mark or the last saved segment;
+**Close** dismisses the overlay and leaves the video paused (pausing for
+other reasons stays possible — the overlay never resumes on its own).
 
-     ```xml
-     <keymap>
-       <fullscreenvideo>
-         <keyboard>
-           <e mod="ctrl">RunScript(service.commercial-editor)</e>
-         </keyboard>
-       </fullscreenvideo>
-     </keymap>
-     ```
+Pause-to-summon can be disabled in the addon settings. Manual summoning
+also works — bind a key in `userdata/keymaps/` (pick an unbound key; e.g.
+`e` is taken by live TV):
 
-3. When a commercial starts, press **Commercial starts here**. When it ends,
-   press **Commercial ends here**. Done — the segment is saved and will be
-   skipped automatically the next time the file is played. **Undo** removes
-   the pending mark or the last saved segment.
+```xml
+<keymap>
+  <fullscreenvideo>
+    <keyboard>
+      <f7>RunScript(service.commercial-editor)</f7>
+    </keyboard>
+  </fullscreenvideo>
+</keymap>
+```
+
+or via JSON-RPC:
+`{"jsonrpc":"2.0","method":"Addons.ExecuteAddon","params":{"addonid":"service.commercial-editor"},"id":1}`
 
 Note: Kodi loads EDL sidecars when playback starts, so a segment saved during
 the current session takes effect from the *next* playback.

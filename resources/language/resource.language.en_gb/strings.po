@@ -70,3 +70,7 @@ msgstr ""
 msgctxt "#32020"
 msgid "Verbose logging"
 msgstr ""
+
+msgctxt "#32021"
+msgid "Open the editor when playback is paused"
+msgstr ""
