@@ -27,6 +27,7 @@
         <font>font12</font>
         <textcolor>FFDDDDDD</textcolor>
         <align>center</align>
+        <scroll>true</scroll>
         <label/>
       </control>
       <control type="grouplist" id="9001">
