@@ -35,9 +35,15 @@ nudge). No addon icon/fanart yet.
 
 ## Install (development)
 
-1. Copy (or symlink) this folder into Kodi's addon directory as
-   `service.commercial-editor`, or zip it and use *Install from zip file*.
-2. Enable it under *Add-ons → My add-ons → Services*.
+1. Build the installable zip — verifies the code, XML and translations first:
+
+   ```bash
+   scripts/package.sh    # → dist/service.commercial-editor-<version>.zip
+   ```
+
+2. In Kodi: *Install from zip file* (or copy/symlink this folder into Kodi's
+   addon directory as `service.commercial-editor`).
+3. Enable it under *Add-ons → My add-ons → Services*.
 
 ## Usage
 

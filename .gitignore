@@ -10,3 +10,4 @@ __pycache__/
 
 # Packaging
 *.zip
+dist/
