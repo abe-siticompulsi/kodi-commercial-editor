@@ -92,7 +92,7 @@ msgid "Keep"
 msgstr ""
 
 msgctxt "#32033"
-msgid "Undo"
+msgid "Go back"
 msgstr ""
 
 msgctxt "#32034"
