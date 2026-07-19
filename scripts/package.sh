@@ -55,4 +55,10 @@ mkdir -p dist
 ZIP="dist/${ADDON_ID}-${VERSION}.zip"
 rm -f "$ZIP"
 (cd "$STAGE" && zip -rq "$OLDPWD/$ZIP" "$ADDON_ID")
-echo "built: $ZIP ($(du -h "$ZIP" | cut -f1))"
+SIZE=$(wc -c < "$ZIP" | tr -d ' ')
+if command -v md5sum >/dev/null; then SUM=$(md5sum "$ZIP" | cut -d' ' -f1); else SUM=$(md5 -q "$ZIP"); fi
+echo "built: $ZIP"
+echo "size:  $SIZE bytes"
+echo "md5:   $SUM"
+echo "After copying to the box, verify BOTH match before installing"
+echo "(a partial copy poisons Kodi's per-path zip cache until restart)."
