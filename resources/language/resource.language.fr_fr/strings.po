@@ -1,0 +1,100 @@
+# Kodi Media Center language file
+# Addon Name: Commercial Editor
+# Addon id: service.commercial-editor
+# Addon Provider: abe-siticompulsi
+msgid ""
+msgstr ""
+"Project-Id-Version: service.commercial-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/abe-siticompulsi/kodi-commercial-editor\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "#32001"
+msgid "Commercial starts here"
+msgstr "La publicité commence ici"
+
+msgctxt "#32002"
+msgid "Commercial ends here"
+msgstr "La publicité se termine ici"
+
+msgctxt "#32003"
+msgid "Undo"
+msgstr "Annuler"
+
+msgctxt "#32004"
+msgid "Close"
+msgstr "Fermer"
+
+msgctxt "#32005"
+msgid "Commercial saved — it will be auto-skipped on the next playback"
+msgstr "Publicité enregistrée — elle sera passée automatiquement à la prochaine lecture"
+
+msgctxt "#32006"
+msgid "Start marked at %s — press again where the commercial ends"
+msgstr "Début marqué à %s — appuyez de nouveau là où la publicité se termine"
+
+msgctxt "#32007"
+msgid "Pending start mark cancelled"
+msgstr "Marque de début en attente annulée"
+
+msgctxt "#32008"
+msgid "Removed last commercial (%s → %s) from the EDL"
+msgstr "Dernière publicité (%s → %s) supprimée de l'EDL"
+
+msgctxt "#32009"
+msgid "Nothing to undo"
+msgstr "Rien à annuler"
+
+msgctxt "#32010"
+msgid "No video is playing"
+msgstr "Aucune vidéo en cours de lecture"
+
+msgctxt "#32011"
+msgid "This video is not played from a direct file path (it is a stream), so an EDL sidecar cannot work. Enable direct file access (e.g. Direct Paths) and try again."
+msgstr "Cette vidéo ne provient pas d'un chemin de fichier direct (c'est un flux), un fichier EDL ne peut donc pas fonctionner. Activez l'accès direct aux fichiers (p. ex. Direct Paths) et réessayez."
+
+msgctxt "#32012"
+msgid "The media folder is not writable by Kodi, so the .edl sidecar cannot be saved. Make the media source writable and try again."
+msgstr "Kodi ne peut pas écrire dans le dossier du média, le fichier .edl ne peut donc pas être enregistré. Rendez la source multimédia accessible en écriture et réessayez."
+
+msgctxt "#32013"
+msgid "Mark the commercial while it plays — the segment is skipped automatically next time"
+msgstr "Marquez la publicité pendant sa diffusion — le segment sera passé automatiquement la prochaine fois"
+
+msgctxt "#32014"
+msgid "Segment too short — still waiting for the end mark"
+msgstr "Segment trop court — en attente de la marque de fin"
+
+msgctxt "#32020"
+msgid "Verbose logging"
+msgstr "Journalisation détaillée"
+
+msgctxt "#32021"
+msgid "Open the editor when playback is paused"
+msgstr "Ouvrir l'éditeur lorsque la lecture est en pause"
+
+msgctxt "#32022"
+msgid "Bind the 'e' key to open the editor (fullscreen video)"
+msgstr "Associer la touche « e » à l'ouverture de l'éditeur (vidéo plein écran)"
+
+msgctxt "#32030"
+msgid "Commercial ahead — skip?"
+msgstr "Publicité imminente — passer ?"
+
+msgctxt "#32031"
+msgid "Skip"
+msgstr "Passer"
+
+msgctxt "#32032"
+msgid "Keep"
+msgstr "Enregistrer"
+
+msgctxt "#32033"
+msgid "Go back"
+msgstr "Retour"
+
+msgctxt "#32034"
+msgid "Skipped %s of commercials — keep it for next time?"
+msgstr "Publicité passée (%s) — enregistrer pour la prochaine fois ?"
