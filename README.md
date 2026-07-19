@@ -58,8 +58,9 @@ other reasons stays possible — the overlay never resumes on its own).
 For frame-precise boundaries, use the overlay's nudge row (−1 s / −0.2 s /
 +1 frame / +0.2 s / +1 s): the first nudge pauses the video and the label
 shows the exact position — land on the boundary, then mark. If you pause
-inside a break the addon already knows about, **Fix this break** adopts the
-draft's start so you only need to mark the corrected end.
+inside a break the addon already knows about, **Fix this break** jumps to
+the detected start so you can verify the frame (nudge if it's off), mark
+the start, then mark the corrected end — no boundary is ever saved unseen.
 
 Manual summoning also works: the addon installs its own keymap — press
 **`e`** during fullscreen video *or while the video OSD is up* (handy after

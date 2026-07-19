@@ -52,10 +52,12 @@ errors instead of failing silently (see Build plan, M0).
   marking overlay (−1 s / −0.2 s / +1 frame / +0.2 s / +1 s — asymmetric because
   video decodes forward-only: backward is seek-emulated, forward gets native
   `FrameAdvance`; the first nudge pauses, the label shows the live position) and
-  **"Fix this break"**: when the playhead is inside a known draft, adopt the
-  draft's start as the pending mark so only the end needs re-marking. Draft
-  dedupe became overlap-based so a draft kept with corrected boundaries still
-  counts as covered.
+  **"Fix this break"**: when the playhead is inside a known draft, jump to the
+  detected start (paused) so the user can *verify the frame* — nudge if off,
+  then mark start and corrected end. The draft start is a proposal to inspect,
+  never adopted unseen: comskip's starts are not immune either, and the
+  invariant covers both boundaries. Draft dedupe became overlap-based so a
+  draft kept with corrected boundaries still counts as covered.
 
 ## Open items
 

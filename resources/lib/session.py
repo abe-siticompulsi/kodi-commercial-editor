@@ -39,11 +39,6 @@ def clear_pending():
     _HOME.clearProperty(_PROP_START)
 
 
-def adopt_start(media_path, seconds):
-    """Adopt a known start (e.g. a draft's) as the pending start mark."""
-    _set_pending(media_path, seconds)
-
-
 def toggle_mark(media_path, seconds):
     """First call: set start mark. Second call: save the segment.
 

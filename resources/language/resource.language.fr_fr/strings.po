@@ -126,3 +126,7 @@ msgstr "Corriger cette coupure (%s)"
 msgctxt "#32046"
 msgid "Position: %s"
 msgstr "Position : %s"
+
+msgctxt "#32047"
+msgid "At the detected start — check the frame, nudge if needed, then mark the start"
+msgstr "Au début détecté — vérifiez l'image, ajustez si besoin, puis marquez le début"

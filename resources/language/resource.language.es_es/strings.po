@@ -126,3 +126,7 @@ msgstr "Corregir este bloque (%s)"
 msgctxt "#32046"
 msgid "Position: %s"
 msgstr "Posición: %s"
+
+msgctxt "#32047"
+msgid "At the detected start — check the frame, nudge if needed, then mark the start"
+msgstr "En el inicio detectado — comprueba el fotograma, ajusta si hace falta y marca el inicio"

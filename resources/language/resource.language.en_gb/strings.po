@@ -126,3 +126,7 @@ msgstr ""
 msgctxt "#32046"
 msgid "Position: %s"
 msgstr ""
+
+msgctxt "#32047"
+msgid "At the detected start — check the frame, nudge if needed, then mark the start"
+msgstr ""

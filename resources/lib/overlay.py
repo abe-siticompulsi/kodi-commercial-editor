@@ -11,8 +11,10 @@ M2 additions:
   backward (video decodes forward-only), seeks + native FrameAdvance
   forward. The first nudge pauses playback; the status line shows the
   position after every step.
-- "Fix this break": when the playhead is inside a known draft, adopt the
-  draft's start as the pending mark so only the end needs re-marking.
+- "Fix this break": when the playhead is inside a known draft, jump to the
+  draft's start (paused) so the user can VERIFY the frame — nudge if off,
+  then mark. The draft start is a proposal to inspect, never adopted
+  unseen: the invariant covers both boundaries.
 
 Child-simple by design (DECISIONS.md #5)."""
 
@@ -105,16 +107,19 @@ class EditorOverlay(xbmcgui.WindowXMLDialog):
             self.getControl(_LBL_STATUS).setLabel(
                 util.L(32046) % util.fmt_time(position))
 
-    def _adopt(self):
-        session.adopt_start(self._media_path, self._draft["start"])
+    def _goto_draft_start(self):
+        if not xbmc.getCondVisibility("Player.Paused"):
+            self._player.pause()
+        self._player.seekTime(max(0.0, self._draft["start"]))
+        xbmc.sleep(150)
         self.getControl(_BTN_ADOPT).setVisible(False)
-        self._refresh(util.L(32006) % util.fmt_time(self._draft["start"]))
+        self._refresh(util.L(32047))
 
     def onClick(self, control_id):
         if control_id in _NUDGES or control_id == _BTN_FRAME:
             self._nudge(control_id)
         elif control_id == _BTN_ADOPT and self._draft:
-            self._adopt()
+            self._goto_draft_start()
         elif control_id == _BTN_MARK:
             now = self._now()
             if now is None:
