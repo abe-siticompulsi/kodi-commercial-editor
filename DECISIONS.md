@@ -48,9 +48,14 @@ errors instead of failing silently (see Build plan, M0).
   is the directory writable?) with clear, actionable error messages.
 - **M1 — the brains:** playing-file ↔ Plex ratingKey mapping, draft-marker fetch,
   the "skip & confirm?" popup. **v1 = M0 + M1.**
-- **M2 — deferred:** nudge-adjust of draft boundaries. v1 handles a bad boundary by
-  dismissing the draft and re-marking by hand; M2 gets built only if that proves
-  annoying in practice.
+- **M2 — precision (built in 0.5.0, couch verdict pending):** a nudge row in the
+  marking overlay (−1 s / −0.2 s / +1 frame / +0.2 s / +1 s — asymmetric because
+  video decodes forward-only: backward is seek-emulated, forward gets native
+  `FrameAdvance`; the first nudge pauses, the label shows the live position) and
+  **"Fix this break"**: when the playhead is inside a known draft, adopt the
+  draft's start as the pending mark so only the end needs re-marking. Draft
+  dedupe became overlap-based so a draft kept with corrected boundaries still
+  counts as covered.
 
 ## Open items
 

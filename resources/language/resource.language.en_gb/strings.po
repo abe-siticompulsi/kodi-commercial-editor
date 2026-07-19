@@ -98,3 +98,31 @@ msgstr ""
 msgctxt "#32034"
 msgid "Skipped %s of commercials — keep it for next time?"
 msgstr ""
+
+msgctxt "#32040"
+msgid "−1 s"
+msgstr ""
+
+msgctxt "#32041"
+msgid "−0.2 s"
+msgstr ""
+
+msgctxt "#32042"
+msgid "+1 frame"
+msgstr ""
+
+msgctxt "#32043"
+msgid "+0.2 s"
+msgstr ""
+
+msgctxt "#32044"
+msgid "+1 s"
+msgstr ""
+
+msgctxt "#32045"
+msgid "Fix this break (%s)"
+msgstr ""
+
+msgctxt "#32046"
+msgid "Position: %s"
+msgstr ""

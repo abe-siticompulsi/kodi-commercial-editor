@@ -55,6 +55,12 @@ per break. **Undo** removes the pending mark or the last saved segment;
 **Close** dismisses the overlay and leaves the video paused (pausing for
 other reasons stays possible — the overlay never resumes on its own).
 
+For frame-precise boundaries, use the overlay's nudge row (−1 s / −0.2 s /
++1 frame / +0.2 s / +1 s): the first nudge pauses the video and the label
+shows the exact position — land on the boundary, then mark. If you pause
+inside a break the addon already knows about, **Fix this break** adopts the
+draft's start so you only need to mark the corrected end.
+
 Manual summoning also works: the addon installs its own keymap — press
 **`e`** during fullscreen video *or while the video OSD is up* (handy after
 fine-seeking to a boundary with the OSD). When summoned this way the mark

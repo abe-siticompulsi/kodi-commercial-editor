@@ -1,44 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-License-Identifier: GPL-3.0-or-later
-     Marking overlay: bottom-centered strip over fullscreen video.
-     Skin-independent (only stock textures/fonts). Button labels are set from code. -->
+     Marking overlay: bottom-centered strip over the video.
+     Row 1: status/position label. Row 2: precision nudge buttons (M2).
+     Row 3: adopt-draft / mark / undo / close. Labels are set from code. -->
 <window type="dialog">
   <defaultcontrol always="true">101</defaultcontrol>
   <zorder>99</zorder>
   <controls>
     <control type="group">
       <left>460</left>
-      <top>860</top>
+      <top>770</top>
       <width>1000</width>
-      <height>160</height>
+      <height>250</height>
       <control type="image">
         <left>0</left>
         <top>0</top>
         <width>1000</width>
-        <height>160</height>
+        <height>250</height>
         <texture colordiffuse="E6101820">colors/white.png</texture>
       </control>
       <control type="label" id="200">
         <left>20</left>
-        <top>12</top>
+        <top>10</top>
         <width>960</width>
-        <height>40</height>
+        <height>36</height>
         <font>font12</font>
         <textcolor>FFDDDDDD</textcolor>
         <align>center</align>
         <label/>
       </control>
+      <control type="grouplist" id="9001">
+        <left>20</left>
+        <top>54</top>
+        <width>960</width>
+        <height>62</height>
+        <orientation>horizontal</orientation>
+        <itemgap>12</itemgap>
+        <align>center</align>
+        <control type="button" id="110">
+          <width>150</width>
+          <height>54</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texturenofocus colordiffuse="FF2A3644" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
+        <control type="button" id="111">
+          <width>150</width>
+          <height>54</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texturenofocus colordiffuse="FF2A3644" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
+        <control type="button" id="112">
+          <width>170</width>
+          <height>54</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texturenofocus colordiffuse="FF2A3644" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
+        <control type="button" id="113">
+          <width>150</width>
+          <height>54</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texturenofocus colordiffuse="FF2A3644" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
+        <control type="button" id="114">
+          <width>150</width>
+          <height>54</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texturenofocus colordiffuse="FF2A3644" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
+      </control>
       <control type="grouplist" id="9000">
         <left>20</left>
-        <top>64</top>
+        <top>130</top>
         <width>960</width>
-        <height>80</height>
+        <height>100</height>
         <orientation>horizontal</orientation>
-        <itemgap>16</itemgap>
+        <itemgap>14</itemgap>
         <align>center</align>
+        <control type="button" id="120">
+          <width>230</width>
+          <height>90</height>
+          <font>font12</font>
+          <textcolor>FFFFFFFF</textcolor>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <wrapmultiline>true</wrapmultiline>
+          <texturenofocus colordiffuse="FF3A4A5A" border="4">colors/white.png</texturenofocus>
+          <texturefocus colordiffuse="FF5A6A7A" border="4">colors/white.png</texturefocus>
+          <label/>
+        </control>
         <control type="button" id="101">
-          <width>440</width>
-          <height>72</height>
+          <width>330</width>
+          <height>90</height>
           <font>font14</font>
           <textcolor>FFFFFFFF</textcolor>
           <focusedcolor>FFFFFFFF</focusedcolor>
@@ -49,8 +132,8 @@
           <label/>
         </control>
         <control type="button" id="102">
-          <width>230</width>
-          <height>72</height>
+          <width>170</width>
+          <height>90</height>
           <font>font14</font>
           <textcolor>FFFFFFFF</textcolor>
           <focusedcolor>FFFFFFFF</focusedcolor>
@@ -61,8 +144,8 @@
           <label/>
         </control>
         <control type="button" id="103">
-          <width>230</width>
-          <height>72</height>
+          <width>160</width>
+          <height>90</height>
           <font>font14</font>
           <textcolor>FFFFFFFF</textcolor>
           <focusedcolor>FFFFFFFF</focusedcolor>

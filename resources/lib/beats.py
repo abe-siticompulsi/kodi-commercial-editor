@@ -44,12 +44,24 @@ def drafts():
 
 
 def _already_in_edl(media_path, draft):
-    """True when the EDL already covers this draft (kept earlier)."""
+    """True when the EDL already covers this draft (kept earlier).
+
+    Overlap-based: a draft kept with human-corrected boundaries (M2's
+    adopt + nudge) still counts as covered."""
+    draft_len = max(0.1, draft["end"] - draft["start"])
     for start, end, _action in edl.read(media_path):
-        if abs(start - draft["start"]) <= LANDING_TOLERANCE and \
-           abs(end - draft["end"]) <= LANDING_TOLERANCE:
+        overlap = min(end, draft["end"]) - max(start, draft["start"])
+        if overlap >= 0.5 * draft_len:
             return True
     return False
+
+
+def draft_at(position, before=ORIGIN_SLACK_BEFORE_START, after=LANDING_TOLERANCE):
+    """The draft the playhead is currently inside (or near), or None."""
+    for draft in drafts():
+        if draft["start"] - before <= position <= draft["end"] + after:
+            return draft
+    return None
 
 
 def match_landing(media_path, origin, target):

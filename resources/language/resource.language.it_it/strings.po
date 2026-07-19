@@ -98,3 +98,31 @@ msgstr "Torna indietro"
 msgctxt "#32034"
 msgid "Skipped %s of commercials — keep it for next time?"
 msgstr "Saltati %s di pubblicità — salvare per la prossima volta?"
+
+msgctxt "#32040"
+msgid "−1 s"
+msgstr "−1 s"
+
+msgctxt "#32041"
+msgid "−0.2 s"
+msgstr "−0,2 s"
+
+msgctxt "#32042"
+msgid "+1 frame"
+msgstr "+1 fotogramma"
+
+msgctxt "#32043"
+msgid "+0.2 s"
+msgstr "+0,2 s"
+
+msgctxt "#32044"
+msgid "+1 s"
+msgstr "+1 s"
+
+msgctxt "#32045"
+msgid "Fix this break (%s)"
+msgstr "Correggi questo blocco (%s)"
+
+msgctxt "#32046"
+msgid "Position: %s"
+msgstr "Posizione: %s"
