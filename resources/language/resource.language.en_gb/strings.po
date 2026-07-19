@@ -78,3 +78,23 @@ msgstr ""
 msgctxt "#32022"
 msgid "Bind the 'e' key to open the editor (fullscreen video)"
 msgstr ""
+
+msgctxt "#32030"
+msgid "Commercial ahead — skip?"
+msgstr ""
+
+msgctxt "#32031"
+msgid "Skip"
+msgstr ""
+
+msgctxt "#32032"
+msgid "Keep"
+msgstr ""
+
+msgctxt "#32033"
+msgid "Undo"
+msgstr ""
+
+msgctxt "#32034"
+msgid "Skipped %s of commercials — keep it for next time?"
+msgstr ""

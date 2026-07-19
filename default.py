@@ -40,10 +40,22 @@ def diag():
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "diag":
+    arg = sys.argv[1] if len(sys.argv) > 1 else ""
+    if arg == "diag":
         diag()
         return
-    auto = len(sys.argv) > 1 and sys.argv[1] == "auto"
+    if arg == "beat1":
+        from resources.lib import beats
+        beats.beat1(float(sys.argv[2]), float(sys.argv[3]))
+        return
+    if arg == "beat2":
+        from resources.lib import beats
+        player = xbmc.Player()
+        if player.isPlayingVideo():
+            beats.beat2(player.getPlayingFile(), float(sys.argv[2]),
+                        float(sys.argv[3]), float(sys.argv[4]))
+        return
+    auto = arg == "auto"
     player = xbmc.Player()
     if not player.isPlayingVideo():
         if not auto:
